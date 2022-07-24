@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:school19/announcement/announcement_controller.dart';
 import 'package:school19/announcement/announcement_list_screen.dart';
 import 'package:school19/change_password/password_change_screen.dart';
+import 'package:school19/daily_report/daily_report_list_screen.dart';
 import 'package:school19/feeback/feeback_screen.dart';
 import 'package:school19/help/help_screen.dart';
 import 'package:school19/home_work/home_work_screen.dart';
@@ -54,7 +55,20 @@ class LogInHomePage extends ConsumerWidget {
                       const SizedBox(height: 16.0,),
                       CustomTextSlider(
                         announcementList: [],
-                        grade:["မြန်မာ ၇၀မှတ်","အင်္ဂလိမ် ၈၀မှတ်"],
+                        grade:["Testing 1,Testing 2, testing 3"],
+                        sliderAspectRatio: 3.2,
+                        isHorizontal: true,
+                        sliderBoxDecoration: BoxDecoration(
+                          border:
+                          Border.all(color: Colors.grey),
+                          borderRadius: const BorderRadius.all(
+                              Radius.circular(10)),
+                        ),
+                      ),
+                      const SizedBox(height: 16.0,),
+                      CustomTextSlider(
+                        announcementList: [],
+                        grade:["Testing 1","Testing 2"],
                         sliderAspectRatio: 3.2,
                         isHorizontal: true,
                         sliderBoxDecoration: BoxDecoration(
@@ -70,11 +84,11 @@ class LogInHomePage extends ConsumerWidget {
                           Expanded(
                               child: GestureDetector(
                                 onTap: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) =>
-                                  //         const CreatePaymentPage()));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                          const DailyReportListPage()));
                                 },
                                 child: Container(
                                   decoration: const BoxDecoration(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:school19/daily_report/daily_report_list_screen.dart';
 import 'package:school19/student/student_controller.dart';
 import 'package:school19/widget/loading_widget.dart';
 
@@ -27,6 +28,7 @@ class _State extends ConsumerState<StudentsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 16.0,),
         SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: studentResponse.when(
@@ -105,14 +107,15 @@ class _State extends ConsumerState<StudentsWidget> {
                 },
                 error: (error, stack) {
                   print("$error");
-                  return Text('');
+                  return const Text('');
                 },
-                loading: loading)),
+                loading: () => Center(child: loading()))),
         const SizedBox(
           height: 16.0,
         ),
-        if(widget.from == "timetable")
-          _forTimeTableWidget()
+         Expanded(child: DailyReportListWidget(gradeId,classId))
+        // if(widget.from == "timetable")
+        //   _forTimeTableWidget()
         // else if(widget.from == "attendance")
         //   AttendanceTableWidget(studentId)
         // else if(widget.from == "teachers")
